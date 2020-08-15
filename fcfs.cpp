@@ -4,6 +4,14 @@ of FCFS scheduling */
 #include<iostream>
 
 using namespace std;
+
+struct Process
+{
+   int ccode;     // course code
+   int duration;      // class duration
+   int priority;  //priority
+   int arrival_time;   //prefered arrival time
+};
  
 // function to find the waiting time for all processes
 void findWaitingTime(int processes[], int n, int bt[], int wt[])
@@ -58,12 +66,13 @@ void findAverageTime( int processes[], int n, int bt[])
 // main function
 int main()
 {
+    Process proc[] = {{2201,3,2,1}, {3401, 2, 3,2}, {1103, 1,1,3}};
     // process ids
-    int processes[] = { 1, 2, 3, 4};
+    int processes[] = { proc[0].ccode, proc[1].ccode, proc[2].ccode};
     int n = sizeof processes / sizeof processes[0];
  
     // burst time of all processes
-    int  burst_time[] = {21, 3, 6, 2};
+    int  burst_time[] = {proc[0].arrival_time, proc[1].arrival_time, proc[2].arrival_time};
  
     findAverageTime(processes, n,  burst_time);
     
