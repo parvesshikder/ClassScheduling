@@ -2,15 +2,13 @@
 #include<bits/stdc++.h> 
 using namespace std; 
   
-struct Process 
-{ 
-	// this is the process ID 
-    int pid;  
-    // the CPU burst time 
-    int bt;   
-    // priority of the process 
-    int priority; 
-}; 
+struct Process
+{
+   int ccode;     // course code
+   int duration;      // class duration
+   int priority;  //priority
+   int arrival_time;   //prefered arrival time
+};
   
 // sort the processes based on priority
 bool sortProcesses(Process a, Process b) 
@@ -61,8 +59,8 @@ void findavgTime(Process proc[], int n)
     { 
         total_wt = total_wt + wt[i]; 
         total_tat = total_tat + tat[i]; 
-        cout << "   " << proc[i].pid << "\t\t"
-             << proc[i].bt << "\t    " << wt[i] 
+        cout << "   " << proc[i].ccode << "\t\t"
+             << proc[i].duration << "\t    " << wt[i] 
              << "\t\t  " << tat[i] <<endl; 
     } 
   
@@ -79,7 +77,7 @@ void priorityScheduling(Process proc[], int n)
   
     cout<< "Order in which processes gets executed \n"; 
     for (int  i = 0 ; i <  n; i++) 
-        cout << proc[i].pid <<" " ; 
+        cout << proc[i].ccode <<" " ; 
   
     findavgTime(proc, n); 
 } 
@@ -87,7 +85,7 @@ void priorityScheduling(Process proc[], int n)
 // Driver code 
 int main() 
 { 
-    Process proc[] = {{1, 10, 2}, {2, 5, 0}, {3, 8, 1}}; 
+    Process proc[] = {{2201,3,2,1}, {3401, 2, 3,2}, {1103, 1,1,3}};
     int n = sizeof proc / sizeof proc[0]; 
     priorityScheduling(proc, n); 
     return 0; 
