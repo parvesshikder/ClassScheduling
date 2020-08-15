@@ -9,6 +9,14 @@ struct Process
    int pid;     // process ID
    int bt;      // burst Time
 };
+
+struct Process
+{
+   int ccode;     // course code
+   int duration;      // class duration
+   int priority;  //priority
+   int arrival_time;   //prefered arrival time
+};
  
 /* 
     this function is used for sorting all
@@ -16,7 +24,7 @@ struct Process
 */
 bool comparison(Process a, Process b)
 {
-    return (a.bt < b.bt);
+    return (a.duration < b.duration);
 }
  
 // function to find the waiting time for all processes
@@ -38,7 +46,7 @@ void findTurnAroundTime(Process proc[], int n, int wt[], int tat[])
     // calculating turnaround time by adding bt[i] + wt[i]
     for (int i = 0; i < n ; i++)
     {
-        tat[i] = proc[i].bt + wt[i];
+        tat[i] = proc[i].duration + wt[i];
     }
 }
  
@@ -62,7 +70,7 @@ void findAverageTime(Process proc[], int n)
     {
         total_wt = total_wt + wt[i];
         total_tat = total_tat + tat[i];
-        cout << " " << proc[i].pid << "\t\t"
+        cout << " " << proc[i].ccode << "\t\t"
              << proc[i].bt << "\t " << wt[i]
              << "\t\t " << tat[i] <<endl;
     }
@@ -76,7 +84,7 @@ void findAverageTime(Process proc[], int n)
 // main function
 int main()
 {
-    Process proc[] = {{1, 21}, {2, 3}, {3, 6}, {4, 2}};
+   Process proc[] = {{2201,3,2,1}, {3401, 2, 3,2}, {1103, 1,1,3}};
     int n = sizeof proc / sizeof proc[0];
  
     // sorting processes by burst time.
@@ -85,7 +93,7 @@ int main()
     cout << "Order in which process gets executed\n";
     for (int i = 0 ; i < n; i++)
     {
-        cout << proc[i].pid <<" ";
+        cout << proc[i].ccode <<" ";
     }
  
     findAverageTime(proc, n);
