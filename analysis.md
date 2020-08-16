@@ -1,10 +1,23 @@
 # Introduction
 
-Describe the algorithms of your choice
+First come first serve (FCFS) scheduling algorithm simply schedules the jobs according to their arrival time. 
+Shortest-Job-First(SJF) scheduling algorithm, schedules the processes according to their burst time.
+Priority scheduling is a method of scheduling processes based on priority.
+
 
 # Consideration
+First come first serve (FCFS)
+  1. Simple
+  2. Easy
+  3. First come, First serv
 
-Describe what you have considered
+Shortest-Job-First(SJF)
+ 1. Maximum throughput 
+ 2. Minimum average waiting and turnaround time
+ 
+ Priority Scheduling
+  1. Easy to use scheduling method.
+  2. Processes are executed on the basis of priority so high priority does not need to wait for long which saves time.
 
 # Analysis
 
